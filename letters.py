@@ -3,16 +3,27 @@
 letters = dict()
 words = list()
 char = list()
+
+def split(word):
+    return [char for char in word]
+
 #open text file to analyze
 try:
     fhandle = open(input('Enter file name:'))
 except:
     print('File does not exist.')
     quit()
-#parse file by lines
-for line in fhandle :
-    line.lower()
+
+#make the file lowercase
+lines = [line.lower() for line in fhandle]
+
+#parse file by lines and split into individual words
+for line in lines :
     line.strip()
-    words = line.split()
-    print(words)
+    word = line.split()
+    for w in word :
+        w.lower()
+        words.append(w)
+print('Words:', words)
+print('Characters:',char)
     
