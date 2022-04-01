@@ -24,9 +24,6 @@ for line in lines :
             if char.isalpha():
                 letters[char] = letters.get(char, 0) + 1
                 total = total + 1
-#print output of frequency of letters in the given text file
+#print frequency of letters in the given text file key sorted
 for key, val in sorted(letters.items()):
-    print(key, ': ', round(val/total*100, 2), '%')
-#write an output file with the value sorted letters
-
-    
+    print('Key Sorted:', key, ': ', round(val/total*100, 2), '%')
