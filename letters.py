@@ -1,11 +1,7 @@
 #Exercise 3: Write a program that reads a file and prints the letters in decreasing order of frequency. Your program should convert all the input to lower case and only count the letters a-z. Your program should not count spaces, digits, punctuation, or anything other than the letters a-z. Find text samples from several different languages and see how letter frequency varies between languages. Compare your results with the tables at https://wikipedia.org/wiki/Letter_frequencies.
 
 letters = dict()
-words = list()
-char = list()
-
-def split(word):
-    return [char for char in word]
+total = 0
 
 #open text file to analyze
 try:
@@ -17,13 +13,18 @@ except:
 #make the file lowercase
 lines = [line.lower() for line in fhandle]
 
-#parse file by lines and split into individual words
+#parse file by lines and split into individual words/characters
 for line in lines :
     line.strip()
-    word = line.split()
-    for w in word :
-        w.lower()
-        words.append(w)
-print('Words:', words)
-print('Characters:',char)
+    line.split()
+    for words in line :
+        for char in words :
+            if char.isalpha():
+                letters[char] = letters.get(char, 0) + 1
+                total = total + 1
+#print output of frequency of letters in the given text file
+for key, val in sorted(letters.items()):
+    print(key, ': ', round(val/total*100, 2), '%')
+#write an output file with the value sorted letters
+
     
