@@ -4,11 +4,13 @@ letters = dict()
 total = 0
 
 #open text file to analyze
-try:
-    fhandle = open(input('Enter file name:'))
-except:
-    print('File does not exist.')
-    quit()
+while True:
+    try:
+        fhandle = open(input('Enter file name:'))
+        break
+    except:
+        print('File does not exist.')
+        continue
 
 #make the file lowercase
 lines = [line.lower() for line in fhandle]
